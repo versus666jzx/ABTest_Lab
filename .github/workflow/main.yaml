@@ -1,0 +1,30 @@
+name: Sync to HuggingFace hub
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+      # to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+
+  check_files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check large files
+        uses: ActionsDesk/lfs-warning@v2.0
+        with:
+          filesizelimit: 10485760 # this is 10MB so we can sync to HF Spaces
+
+  sync-to-hub:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Push to hub
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: git push --force https://HF_USERNAME:$HF_TOKEN@huggingface.co/spaces/versus666/ABTest_Lab main
+    needs: check_files
