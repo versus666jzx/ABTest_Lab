@@ -7,16 +7,16 @@ import tools
 
 STEP_2 = STEP_3 = STEP_4 = STEP_5 = STEP_6 = False
 
-hide_menu_style = """
-        <style>
-        footer {visibility: hidden;}
-        </style>
-        """
-st.markdown(hide_menu_style, unsafe_allow_html=True)
-
 st.set_page_config(
 	page_title="A/B Tests", page_icon="📈", initial_sidebar_state="expanded"
 )
+
+hide_menu_style = """
+		<style>
+		footer {visibility: hidden;}
+		</style>
+		"""
+st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 st.title('A/B tests lab')
 
