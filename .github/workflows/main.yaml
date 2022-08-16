@@ -26,5 +26,5 @@ jobs:
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: git push --force https://HF_USERNAME:$HF_TOKEN@huggingface.co/spaces/versus666/ABTest_Lab main
+        run: git lfs fetch --all && git push --force https://HF_USERNAME:$HF_TOKEN@huggingface.co/spaces/versus666/ABTest_Lab main
     needs: check_files
