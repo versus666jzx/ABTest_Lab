@@ -1,7 +1,7 @@
 ---
-title: A/B Lab
-emoji: 🚀 🚀 🚀
-colorFrom: blue
+title: A/B-test Lab
+emoji: 🎁 💰 👨🏻‍🔬
+colorFrom: purple
 colorTo: green
 sdk: streamlit
 sdk_version: 1.10.0
